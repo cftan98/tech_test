@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Divider, Menu, Dropdown } from 'antd';
+import { Divider, Menu, Dropdown, Space } from 'antd';
 import image from './classic-tee.jpg';
 
 // Dummy data
@@ -7,24 +7,22 @@ const menu = (
   <Menu>
     <Menu.Item>
       <a>
-        1st menu item
-      </a>
-    </Menu.Item>
-    <Menu.Item>
-      <a>
-        2nd menu item
-      </a>
-    </Menu.Item>
-    <Menu.Item>
-      <a>
-        3rd menu item
+        <>
+          <Space align='start'>
+            <img src={image} height={150} width={100}/>
+            <div>
+              <p>Classic tee</p>
+              <span>1 * <b>$75.00</b></span>
+              <p>Size: S</p>
+            </div>
+          </Space>
+        </>
       </a>
     </Menu.Item>
   </Menu>
 );
 
 function App() {
-  const [items, setItems] = useState([]);
   const [selectSize, setSize] = useState("");
 
   const handleChangeBox = (value) => {
@@ -51,11 +49,11 @@ function App() {
       <div
         className='Header'
       >
-        <Dropdown overlay={menu}>
+        <Dropdown overlay={menu} placement='bottomRight'>
           <p
             id='CART'
           >
-            My Cart  ({items.length})
+            My Cart  (1)
         </p>
         </Dropdown>
       </div>
