@@ -17,6 +17,42 @@ code {
   background-color: #F6F6F7;
 }
 
+#CART{
+  margin-left: 85%;
+  font-size: small;
+  text-align: center;
+  width: 90px;
+}
+
+#MAIN{
+  display: flex;
+  margin-top: 5%;
+}
+
+#RHS{
+  width: 500px;
+  margin-left: 10%;
+}
+
+#LHS{
+  height: 600px;
+  width: 400px;
+  margin-left: 20%;
+}
+
+#BOX_CONTAINER{
+  display: flex;
+}
+
+.box{
+  border: solid 1px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
 #add_cart_button{
   border: solid 2px;
   border-color: black;
@@ -25,9 +61,97 @@ code {
   text-align: center;
   padding-top: 5px;
   padding-bottom: 5px;
+  transition: all 0.2s;
+  cursor: pointer;
 }
 
 #add_cart_button:hover{
   background-color: black;
   color: white;
+  transition: all 0.2s;
+  cursor: pointer;
 }
+
+@media screen and (max-width: 500px) {
+  #CART{
+    margin-left: 70%;
+  }
+
+  #RHS{
+    margin: auto;
+    width: auto;
+    padding: 20px;
+  }
+
+  #TITLE{
+    float: left;
+  }
+
+  #PRICE{
+    text-align: left;
+  }
+
+  #DESCRIP{
+    display: inline-block;
+    text-align: left;
+  }
+
+  #SIZE{
+    text-align: left;
+  }
+
+  #add_cart_button{
+    margin-bottom: 20px;
+  }
+
+}
+
+@media screen and (max-width: 900px){
+  .Header{
+    width: 100%;
+  }
+
+  #MAIN{
+    display: block;
+    text-align: center;
+  }
+
+  #LHS{
+    margin: 0;
+    height: 400px;
+    width: 300px;
+    margin: auto;
+    margin-bottom: 50px;
+  }
+
+  #RHS{
+    margin: 0;
+    margin:auto;
+  }
+
+  .divider{
+    display: none;
+  }
+
+  #BOX_CONTAINER{
+    text-align: center;
+  }
+
+  .box{
+    border: solid 1px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
+
+}
+
+@media screen and (max-width: 1318px) and (min-width: 900px){
+  #RHS{
+    padding-right: 10%;
+  }
+}
+

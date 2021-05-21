@@ -1,17 +1,30 @@
 import { useState } from 'react';
+import { Divider, Menu, Dropdown } from 'antd';
 import image from './classic-tee.jpg';
 
-const sizeBox = {
-  border: 'solid 1px',
-  width: "40px",
-  height: '40px',
-  textAlign: 'center',
-  marginRight: '10px',
-  cursor: 'pointer'
-}
+// Dummy data
+const menu = (
+  <Menu>
+    <Menu.Item>
+      <a>
+        1st menu item
+      </a>
+    </Menu.Item>
+    <Menu.Item>
+      <a>
+        2nd menu item
+      </a>
+    </Menu.Item>
+    <Menu.Item>
+      <a>
+        3rd menu item
+      </a>
+    </Menu.Item>
+  </Menu>
+);
 
 function App() {
-  const [numOfItem, setNumOfItem] = useState(0);
+  const [items, setItems] = useState([]);
   const [selectSize, setSize] = useState("");
 
   const handleChangeBox = (value) => {
@@ -23,7 +36,6 @@ function App() {
       document.getElementById(value).style.border = "solid 2px";
       document.getElementById(value).style.borderColor = 'black';
     }
-
   }
 
   const resetBoxStyle = () => {
@@ -39,60 +51,59 @@ function App() {
       <div
         className='Header'
       >
-        <p style={{ marginLeft: '85%', fontSize: 'small' }}>My Cart  ({numOfItem})</p>
+        <Dropdown overlay={menu}>
+          <p
+            id='CART'
+          >
+            My Cart  ({items.length})
+        </p>
+        </Dropdown>
       </div>
 
       <div
-        // main container
-        style={{
-          display: 'flex',
-          marginTop: '5%',
-        }}
+        // main container component
+        id="MAIN"
       >
         <img
+          // Lefthandside component
+          id="LHS"
           src={image}
-          style={{
-            height: '600px',
-            width: '400px',
-            marginLeft: '20%',
-          }}
         />
 
         <div
-          style={{
-            width: '500px',
-            marginLeft: '10%'
-          }}
+          // Righthandside component
+          id="RHS"
         >
           <div
+            id="TITLE"
             style={{
               color: '#222222'
             }}
           >
             <h3>Classic tee</h3>
-            <hr></hr>
-            <p>$75.00</p>
-            <hr></hr>
+            <Divider className="divider" />
+            <p id='PRICE'>$75.00</p>
+            <Divider className="divider" />
           </div>
 
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+          <p id="DESCRIP">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 
           <div>
-            <p>SIZE:<span style={{ color: '#C90000' }}>*</span>  <span style={{ color: 'black' }}>{selectSize}</span></p>
+            <p id='SIZE'>SIZE:<span style={{ color: '#C90000' }}>*</span>  <span style={{ color: 'black' }}>{selectSize}</span></p>
           </div>
 
           <div
-            style={{ display: 'flex' }}
+            id="BOX_CONTAINER"
           >
-            <div id='S' className='box' style={sizeBox} onClick={() => handleChangeBox("S")}>
+            <div id='S' className='box' onClick={() => handleChangeBox("S")}>
               <p style={{ marginTop: '8px' }}>S</p>
             </div>
 
-            <div id='M' className='box' style={sizeBox} onClick={() => handleChangeBox("M")}>
+            <div id='M' className='box' onClick={() => handleChangeBox("M")}>
               <p style={{ marginTop: '8px' }}>M</p>
             </div>
 
-            <div id='L' className='box' style={sizeBox} onClick={() => handleChangeBox("L")}>
+            <div id='L' className='box' onClick={() => handleChangeBox("L")}>
               <p style={{ marginTop: '8px' }}>L</p>
             </div>
           </div>
@@ -102,7 +113,6 @@ function App() {
           >
             ADD TO CART
           </div>
-
         </div>
       </div>
     </div>
