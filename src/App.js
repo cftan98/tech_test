@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Divider, Menu, Dropdown, Space } from 'antd';
+import { ShoppingCartOutlined } from '@ant-design/icons';
 import image from './classic-tee.jpg';
 
 // Dummy data
@@ -9,7 +10,7 @@ const menu = (
       <a>
         <>
           <Space align='start'>
-            <img src={image} height={150} width={100}/>
+            <img src={image} height={150} width={100} />
             <div>
               <p>Classic tee</p>
               <span>1 * <b>$75.00</b></span>
@@ -50,11 +51,15 @@ function App() {
         className='Header'
       >
         <Dropdown overlay={menu} placement='bottomRight'>
-          <p
-            id='CART'
-          >
-            My Cart  (1)
-        </p>
+          <div className='CART'>
+            <ShoppingCartOutlined id={"CART_ICON"} size={10} />
+            <p
+              id='CART'
+              //className='CART'
+            >
+              My Cart  (1)
+            </p>
+          </div>
         </Dropdown>
       </div>
 

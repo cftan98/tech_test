@@ -15,13 +15,18 @@ code {
 
 .Header{
   background-color: #F6F6F7;
+  width: 100%;
 }
 
-#CART{
+.CART{
   margin-left: 85%;
   font-size: small;
   text-align: center;
   width: 90px;
+}
+
+#CART_ICON{
+  display: none;
 }
 
 #MAIN{
@@ -73,12 +78,23 @@ code {
 }
 
 @media screen and (max-width: 500px) {
+  .CART{
+    margin-left: auto;
+  }
+
   #CART{
-    margin-left: 70%;
+    display: none;
+  }
+
+  #CART_ICON{
+    display: inline-block;
+    font-size: large;
+    position: relative;
   }
 
   #RHS{
     margin: auto;
+    margin-right: 0;
     width: auto;
     padding: 20px;
   }
