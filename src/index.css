@@ -116,10 +116,13 @@ code {
     text-align: left;
   }
 
-  #add_cart_button{
-    margin-bottom: 20px;
+  #BOX_CONTAINER{
+    margin-left: 0 !important;
   }
 
+  #add_cart_button{
+    margin-left: 0px !important;
+  }
 }
 
 @media screen and (max-width: 900px){
@@ -151,6 +154,7 @@ code {
 
   #BOX_CONTAINER{
     text-align: center;
+    margin-left: 180px;
   }
 
   .box{
@@ -162,7 +166,9 @@ code {
     cursor: pointer;
   }
 
-
+  #add_cart_button{
+    margin-left: 165px;
+  }
 }
 
 @media screen and (max-width: 1318px) and (min-width: 900px){
